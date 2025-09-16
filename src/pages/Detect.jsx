@@ -18,7 +18,7 @@ const Detect = () => {
   }, []);
 
   return (
-    <div className="min-h-screen pt-15 flex flex-col md:flex-row md:justify-between items-center">
+    <div className="min-h-screen mt-10 md:mt-10 flex flex-col md:flex-row gap-30 md:gap-20 justify-center items-center p-10 overflow-hidden">
       {loading ? (
         <div className="flex justify-center items-center w-full">
           <BounceLoader color="#ffffff" />
@@ -28,7 +28,7 @@ const Detect = () => {
           <div className="md:flex-1/2 w-full h-auto">
             <WebCamFeed onEmotionDetect={setEmotion} />
           </div>
-          <div className="md:flex-1/2 h-auto p-10">
+          <div className="md:flex-1/2 h-auto">
             <EmotionDisplay emotion={emotion} />
           </div>
         </>
