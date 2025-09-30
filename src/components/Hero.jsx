@@ -57,9 +57,6 @@ const Hero = () => {
                   Get Started
                 </button>
               </Link>
-              <button className="mt-6 mx-2 px-8 py-2 text-yellow border font-semibold rounded-full shadow-md cursor-pointer transition-transform duration-200">
-                Let us know you were here!
-              </button>
             </div>
           </div>
 
