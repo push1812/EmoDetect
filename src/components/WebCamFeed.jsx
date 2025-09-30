@@ -79,10 +79,8 @@ const WebCamFeed = ({ onEmotionDetect }) => {
             const values = await prediction.data();
             const maxIndex = values.indexOf(Math.max(...values));
             const detectedEmotion = labelMap[maxIndex] || "Unknown";
-            const confidence = (values[maxIndex] * 100).toFixed(2);
 
-            if (onEmotionDetect)
-              onEmotionDetect(`${detectedEmotion} (${confidence}%)`);
+            if (onEmotionDetect) onEmotionDetect(`${detectedEmotion}`);
 
             // Draw rectangle + text
             ctx.strokeStyle = "#00FF00";
@@ -90,15 +88,11 @@ const WebCamFeed = ({ onEmotionDetect }) => {
             ctx.strokeRect(x, y, w, h);
             ctx.font = "18px Arial";
             ctx.fillStyle = "#FFD700";
-            ctx.fillText(
-              `${detectedEmotion} (${confidence}%)`,
-              x,
-              y > 20 ? y - 5 : y + 20
-            );
+            ctx.fillText(`${detectedEmotion}`, x, y > 20 ? y - 5 : y + 20);
 
             prediction.dispose();
           } catch (err) {
-            console.error("❌ Prediction error:", err);
+            console.error("Prediction error:", err);
           } finally {
             tensor.dispose();
           }

@@ -9,9 +9,9 @@ const useEmotionModel = () => {
       try {
         const loadedModel = await tf.loadGraphModel("/tfjs_model/model.json");
         setModel(loadedModel);
-        console.log("✅ Model Loaded!");
+        console.log("Model Loaded Successfully!");
       } catch (err) {
-        console.error("❌ Model loading error:", err);
+        console.error("Model loading error:", err);
       }
     };
     loadModel();
